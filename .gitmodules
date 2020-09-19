@@ -1,0 +1,6 @@
+[submodule "src/deps/data_structures"]
+	path = src/deps/data_structures
+	url = git@github.com:sagnb/data_structures.git
+[submodule "src/deps/data_processing"]
+	path = src/deps/data_processing
+	url = git@github.com:sagnb/data_processing.git
