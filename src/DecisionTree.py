@@ -14,6 +14,8 @@ __all__ = ['DecisionNode']
 
 import math
 import deps.data_structures.Tree as tr
+import numpy as np
+import pandas as pd
 
 
 class DecisionNode(tr.Node):
@@ -33,7 +35,7 @@ class DecisionNode(tr.Node):
 		self.main_answers = {}
 		self.count = 0
 		self.question = None
-		for answer in list(map(self.main_question, self.data)):
+		for answer in data[main_question]:
 			if not (answer in self.main_answers):
 				self.main_answers[answer] = 0
 			self.main_answers[answer] += 1
@@ -83,12 +85,14 @@ class DecisionNode(tr.Node):
 		if questions and max_height > 0 and len(self.main_answers) > 1:
 			answers = {}
 			questions, self.question = self.choise(questions)
-			for index, answer in enumerate(list(map(self.question, self.data))):
+			for index, answer in enumerate(self.data[self.question]):
 				if not (answer in answers):
 					answers[answer] = []
-				answers[answer].append(self.data[index])
+				answers[answer].append(self.data.iloc[index])
 			for answer in answers:
-				self.new_son((answer, answers[answer]))
+				data = pd.DataFrame(answers[answer])
+				data.index = range(data.shape[0])
+				self.new_son((answer, data))
 			for son in self.lst_of_children:
 				son.fit(questions.copy(), max_height-1)
 
@@ -114,15 +118,17 @@ class DecisionNode(tr.Node):
 				index = i
 		return questions, questions.pop(index)
 
-	def information_gain(self, A):
+	def information_gain(self, question):
 		answers = {}
 		children = {}
-		for index, answer in enumerate(list(map(A, self.data))):
+		for index, answer in enumerate(self.data[question]):
 			if not (answer in answers):
 				answers[answer] = []
-			answers[answer].append(self.data[index])
+			answers[answer].append(self.data.iloc[index])
 		for answer in answers:
-			children[answer] = DecisionNode(answers[answer], self.main_question)
+			data = pd.DataFrame(answers[answer])
+			data.index = range(data.shape[0])
+			children[answer] = DecisionNode(data, self.main_question)
 		info_D = 0
 		for answer in self.main_answers:
 			info_D += (self.main_answers[answer]/float(self.count)) * math.log(
@@ -145,10 +151,8 @@ class DecisionNode(tr.Node):
 				if self.main_answers[answer] > self.main_answers[result]:
 					result = answer
 			return result
-		return self.children[self.question(sample)].test(sample)
+		return self.children[sample[self.question]].test(sample)
 
 
 if __name__ == '__main__':
-	root = DecisionNode(list(range(1, 200)), lambda x : x%6 == 0)
-	root.fit([lambda x: x%2 == 0, lambda x: x%3 == 0, lambda x: x%4 == 0, lambda x: x%5 == 0])
-	print(root.test(int(input('digite um numero: '))))
+	pass
