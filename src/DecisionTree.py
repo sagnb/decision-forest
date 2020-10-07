@@ -145,7 +145,7 @@ class DecisionNode(tr.Node):
 		return info_D - info_AD
 
 	def test(self, sample):
-		if self.is_leaf:
+		if self.is_leaf or not sample[self.question] in self.children:
 			result = list(self.main_answers.keys())[0]
 			for answer in self.main_answers:
 				if self.main_answers[answer] > self.main_answers[result]:
