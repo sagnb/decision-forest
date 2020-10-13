@@ -1,0 +1,4 @@
+numpy==1.18.5
+numpydoc @ file:///tmp/build/80754af9/numpydoc_1594166760263/work
+pandas @ file:///tmp/build/80754af9/pandas_1592841659173/work
+argh==0.26.2
