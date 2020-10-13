@@ -49,7 +49,7 @@ if __name__ == '__main__':
     columns = list(train_data.columns[:-1])
     list_columns = random_columns(columns, n_max=len(columns)-1)
     for i in range(N_TREE):
-      roots.append(dt.DecisionNode(sets[i][0], 'Joga'))
+      roots.append(dt.DecisionNode(sets[i][0], args.target))
       roots[-1].fit(list_columns[i].copy())
     list_results = []
     test_index = randint(0, test_data.shape[0]-1)
