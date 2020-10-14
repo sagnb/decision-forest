@@ -142,7 +142,7 @@ class DecisionNode(tr.Node):
 					(son.main_answers[answer]/float(son.count)), 2
 					)
 			info_AD += son.count/float(self.count) * info_Dj
-		return info_D - info_AD
+		return -1 * info_D - info_AD
 
 	def test(self, sample):
 		if self.is_leaf or not sample[self.question] in self.children:

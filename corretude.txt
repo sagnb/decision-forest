@@ -1,0 +1,101 @@
+Coluna alvo: Joga
+Tabela inicial :
+         Tempo Temperatura Umidade     Ventoso Joga
+0   Ensolarado      Quente    Alta       Falso  Nao
+1   Ensolarado      Quente    Alta  Verdadeiro  Nao
+2      Nublado      Quente    Alta       Falso  Sim
+3      Chuvoso       Amena    Alta       Falso  Sim
+4      Chuvoso        Fria  Normal       Falso  Sim
+5      Chuvoso        Fria  Normal  Verdadeiro  Nao
+6      Nublado        Fria  Normal  Verdadeiro  Sim
+7   Ensolarado       Amena    Alta       Falso  Nao
+8   Ensolarado        Fria  Normal       Falso  Sim
+9      Chuvoso       Amena  Normal       Falso  Sim
+10  Ensolarado       Amena  Normal  Verdadeiro  Sim
+11     Nublado       Amena    Alta  Verdadeiro  Sim
+12     Nublado      Quente  Normal       Falso  Sim
+13     Chuvoso       Amena    Alta  Verdadeiro  Nao
+
+colunas restantes: ['Tempo', 'Temperatura', 'Umidade', 'Ventoso']
+coluna: Tempo, ganho: 0.2467498197744391
+coluna: Temperatura, ganho: 0.029222565658954647
+coluna: Umidade, ganho: 0.15183550136234136
+coluna: Ventoso, ganho: 0.04812703040826927
+coluna escolhida: Tempo
+aresta resposta: Ensolarado
+Classes do node: {'Nao': 3, 'Sim': 2}
+tabela do nó:
+        Tempo Temperatura Umidade     Ventoso Joga
+0  Ensolarado      Quente    Alta       Falso  Nao
+1  Ensolarado      Quente    Alta  Verdadeiro  Nao
+2  Ensolarado       Amena    Alta       Falso  Nao
+3  Ensolarado        Fria  Normal       Falso  Sim
+4  Ensolarado       Amena  Normal  Verdadeiro  Sim
+
+aresta resposta: Nublado
+Classes do node: {'Sim': 4}
+tabela do nó:
+     Tempo Temperatura Umidade     Ventoso Joga
+0  Nublado      Quente    Alta       Falso  Sim
+1  Nublado        Fria  Normal  Verdadeiro  Sim
+2  Nublado       Amena    Alta  Verdadeiro  Sim
+3  Nublado      Quente  Normal       Falso  Sim
+
+aresta resposta: Chuvoso
+Classes do node: {'Sim': 3, 'Nao': 2}
+tabela do nó:
+     Tempo Temperatura Umidade     Ventoso Joga
+0  Chuvoso       Amena    Alta       Falso  Sim
+1  Chuvoso        Fria  Normal       Falso  Sim
+2  Chuvoso        Fria  Normal  Verdadeiro  Nao
+3  Chuvoso       Amena  Normal       Falso  Sim
+4  Chuvoso       Amena    Alta  Verdadeiro  Nao
+
+colunas restantes: ['Temperatura', 'Umidade', 'Ventoso']
+coluna: Temperatura, ganho: 0.5709505944546686
+coluna: Umidade, ganho: 0.9709505944546686
+coluna: Ventoso, ganho: 0.01997309402197489
+coluna escolhida: Umidade
+aresta resposta: Alta
+Classes do node: {'Nao': 3}
+tabela do nó:
+        Tempo Temperatura Umidade     Ventoso Joga
+0  Ensolarado      Quente    Alta       Falso  Nao
+1  Ensolarado      Quente    Alta  Verdadeiro  Nao
+2  Ensolarado       Amena    Alta       Falso  Nao
+
+aresta resposta: Normal
+Classes do node: {'Sim': 2}
+tabela do nó:
+        Tempo Temperatura Umidade     Ventoso Joga
+0  Ensolarado        Fria  Normal       Falso  Sim
+1  Ensolarado       Amena  Normal  Verdadeiro  Sim
+
+colunas restantes: ['Temperatura', 'Umidade', 'Ventoso']
+coluna: Temperatura, ganho: 0.01997309402197489
+coluna: Umidade, ganho: 0.01997309402197489
+coluna: Ventoso, ganho: 0.9709505944546686
+coluna escolhida: Ventoso
+aresta resposta: Falso
+Classes do node: {'Sim': 3}
+tabela do nó:
+     Tempo Temperatura Umidade Ventoso Joga
+0  Chuvoso       Amena    Alta   Falso  Sim
+1  Chuvoso        Fria  Normal   Falso  Sim
+2  Chuvoso       Amena  Normal   Falso  Sim
+
+aresta resposta: Verdadeiro
+Classes do node: {'Nao': 2}
+tabela do nó:
+     Tempo Temperatura Umidade     Ventoso Joga
+0  Chuvoso        Fria  Normal  Verdadeiro  Nao
+1  Chuvoso       Amena    Alta  Verdadeiro  Nao
+
+Nao -> 5; Tempo:Sim -> 9; 
+Sim -> 3; Ventoso:Nao -> 2; 
+Nao -> 2; 
+Sim -> 3; 
+Sim -> 4; 
+Nao -> 3; Umidade:Sim -> 2; 
+Sim -> 2; 
+Nao -> 3; 
