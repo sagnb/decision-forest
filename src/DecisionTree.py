@@ -49,10 +49,11 @@ class DecisionNode(tr.Node):
 			of this node
 		
 		"""
-		return ''.join([
-			f'{answer} -> {self.main_answers[answer]}; ' 
-			for answer in self.main_answers
-			])
+		lst = []
+		for answer in self.children:
+			son = self.children[answer]
+			lst.append(f'{self.question} ({self.main_answers}) -{answer}-> {son.question} ({son.main_answers})\n')
+		return f''.join(lst)
 
 	@property
 	def lst_of_children(self):
